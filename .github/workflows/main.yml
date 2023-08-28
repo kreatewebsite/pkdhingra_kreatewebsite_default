@@ -107,7 +107,7 @@ jobs:
           
           if gsutil ls -b gs://"$BUCKET_NAME"/; then
             echo "Bucket exists"
-            gsutil -m rsync -r "$repo_name/*" "gs://$BUCKET_NAME"
+            gsutil -m cp -r "$repo_name/*" "gs://$BUCKET_NAME"
             echo "::set-output name=exists::true"
           else
             echo "Bucket does not exist"
